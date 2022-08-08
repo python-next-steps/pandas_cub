@@ -43,10 +43,20 @@ class DataFrame:
                     raise ValueError('values must be 1d arrays')
 
     def _check_array_lengths(self, data):
-        pass
+        for i, values in enumerate(data.values()):
+            if i == 0:
+                length = len(values)
+            if length != len(values):
+                raise ValueError('All values must be the same length')
+
 
     def _convert_unicode_to_object(self, data):
         new_data = {}
+        for key, value in data.items():
+            if value.dtype.kind == 'U':
+                new_data[key] = value.astype(object)
+            else:
+                new_data[key] = value
         return new_data
 
     def __len__(self):

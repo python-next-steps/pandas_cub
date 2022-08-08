@@ -67,8 +67,9 @@ class DataFrame:
         -------
         int: the number of rows in the dataframe
         """
-        pass
-
+        for value in self._data.values():
+            return len(value)
+            
     @property
     def columns(self):
         """

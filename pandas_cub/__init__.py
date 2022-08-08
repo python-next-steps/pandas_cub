@@ -40,7 +40,7 @@ class DataFrame:
                 raise TypeError('values must be NumPy arrays')
             else:
                 if value.ndim != 1:
-                    raise ValueError('values must be 1 dimensional')
+                    raise ValueError('values must be 1d arrays')
 
     def _check_array_lengths(self, data):
         pass
